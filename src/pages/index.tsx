@@ -11,13 +11,13 @@ type DataProps = {
   }
 }
 
-const UsingTypescript: React.FC<PageProps<DataProps>> = ({
+const HomePage: React.FC<PageProps<DataProps>> = ({
   data,
   path,
   location,
 }) => (
   <Layout title="Using TypeScript" location={location}>
-    <Seo title="Using TypeScript" />
+    <Seo title="Home" />
     <h1>Gatsby supports TypeScript by default!</h1>
     <p>
       This means that you can create and write <em>.ts/.tsx</em> files for your
@@ -43,7 +43,7 @@ const UsingTypescript: React.FC<PageProps<DataProps>> = ({
   </Layout>
 )
 
-export default UsingTypescript
+export default HomePage
 
 export const query = graphql`
   {
