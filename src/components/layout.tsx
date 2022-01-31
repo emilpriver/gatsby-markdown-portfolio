@@ -1,13 +1,11 @@
 import React from "react"
-import {PageProps} from "gatsby"
 import Header from "./header";
 
-declare const __PATH_PREFIX__: string
 
-const Layout: React.FC<PageProps> = ({  children }) => {
+const Layout: React.FC = ({  children }) => {
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto max-w-7xl">
       <Header />
       <main>{children}</main>
       <footer>

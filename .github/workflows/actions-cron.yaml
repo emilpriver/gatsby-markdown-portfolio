@@ -1,0 +1,17 @@
+name: Send webook request to cloudflare to rebuild page
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */3 * * *"
+
+jobs:
+  cron-send-webhook-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Webhook request
+        uses: fjogeleit/http-request-action@master
+        with:
+          url: ${{ secrets.CLOUDFLARE_WEBHOOK }}
+          method: 'POST'
+
