@@ -6,7 +6,9 @@ const Header: React.FC = () => {
   return (
       <div className="flex justify-between py-12 items-center">
         <div>
-          <StaticImage src="../images/favicon.png" alt="Emil Privér" width={50} height={50}/>
+          <Link to="/" className="mr-4 text-lg text-hero-dark">
+            <StaticImage src="../images/favicon.png" alt="Emil Privér" width={50} height={50}/>
+          </Link>
         </div>
         <nav>
           <Link to="/" className="mr-4 text-lg text-hero-dark">Home</Link>

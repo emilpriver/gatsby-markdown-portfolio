@@ -14,13 +14,19 @@ const Post: React.FC<Post> = ({post}) => {
           key={post.id}
       >
         <h3 className="mb-4 text-2xl text-gray-900 tracking-tight font-bold">
-          <Link to={`/notes/${post.fields.slug}`}>
+          <Link to={post.fields.slug}>
             {post.frontmatter.title}
           </Link>
         </h3>
-        <time className="mb-6" dateTime={dayjs(post.frontmatter.date).format("MMMM DD, YYYY")}>
-          {post.frontmatter.fromNow}
-        </time>
+        <span>
+            <time className="mb-6" dateTime={dayjs(post.frontmatter.date).format("MMMM DD, YYYY")}>
+              {post.frontmatter.fromNow}
+            </time>
+          {' '}
+          -
+          {' '}
+          {post.fields.readingTime.text}
+          </span>
         <div className="mb-6 markdown">
           <p>{post.excerptPlain}</p>
         </div>
@@ -35,7 +41,7 @@ const Post: React.FC<Post> = ({post}) => {
           </svg>
           <Link
               className="group inline-flex items-center h-9 rounded-full text-sm font-semibold whitespace-nowrap transition px-3 bg-gray-200 focus:outline-none focus:ring-2 text-gray-700 hover:bg-gray-300 hover:text-gray-900 focus:ring-gray-500"
-              to={`/notes/${post.fields.slug}`}
+              to={post.fields.slug}
           >
             Read more<span className="sr-only">, {post.frontmatter.title}</span>
             <svg

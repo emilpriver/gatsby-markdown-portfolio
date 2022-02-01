@@ -1,17 +1,48 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
+import {graphql, Link} from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import {Post} from "../types/post";
+import dayjs from "dayjs";
+import "prismjs/themes/prism-tomorrow.css";
 
-const BlogPostTemplate = ({ data, location }) => {
-  const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const { previous, next } = data
+type Props = {
+  data: {
+    markdownRemark: Post
+    previous: Post
+    next: Post
+  }
+}
+
+const BlogPostTemplate: React.FC<Props> = ({ data }) => {
+  const { previous, next, markdownRemark: post } = data
 
   return (
-    <h2>dev</h2>
+      <Layout>
+        <Seo
+            title={post.frontmatter.seoTitle || post.frontmatter.title || ''}
+            description={post.frontmatter.description}
+        />
+        <div className="max-w-4xl container mx-auto">
+          <h1 className="text-4xl md:text-6xl mb-12 font-medium">{post.frontmatter.title}</h1>
+          <span className="mb-6 w-full inline-block">
+            <time className="mb-6" dateTime={dayjs(post.frontmatter.date).format("MMMM DD, YYYY")}>
+              {post.frontmatter.fromNow}
+            </time>
+            {' '}
+            -
+            {' '}
+            {post.fields.readingTime.text}
+          </span>
+          <div className="prose lg:prose-xl mb-12" dangerouslySetInnerHTML={{__html: post.html}} />
+          {true ? (
+              <div className="w-full flex justify-between items-center flex-wrap mb-12">
+                {previous ? <Link className="text-lg mb-2" to={previous.fields.slug}>Previous post: {previous.frontmatter.title}</Link> : null}
+                {next ? <Link className="text-lg mb-2" to={next.fields.slug}>Next post: {next.frontmatter.title}</Link> : null}
+              </div>
+          ) : null}
+        </div>
+      </Layout>
   )
 }
 
@@ -29,14 +60,29 @@ export const pageQuery = graphql`
       }
     }
     markdownRemark(id: { eq: $id }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-        description
-      }
+        html
+        htmlAst
+        timeToRead
+        fields {
+            slug
+            readingTime {
+                words
+                text
+                time
+                minutes
+            }
+        }
+        frontmatter {
+            thumbnail
+            title
+            description
+            fromNow: date(fromNow: true, locale: "en")
+            date
+            seoTitle
+            published
+        }
+        excerptPlain: excerpt(format: PLAIN)
+        excerptHtml: excerpt(format: HTML)
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
       fields {

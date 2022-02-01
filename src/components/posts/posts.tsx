@@ -10,6 +10,12 @@ const Posts: React.FC = () => {
                       timeToRead
                       fields {
                           slug
+                          readingTime {
+                              words
+                              text
+                              time
+                              minutes
+                          }
                       }
                       frontmatter {
                           thumbnail

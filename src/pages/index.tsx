@@ -13,7 +13,7 @@ type DataProps = {}
 const HomePage: React.FC<PageProps<DataProps>> = () => (
   <Layout>
     <Seo title="Home" />
-    <div className="pb-24 grid auto-rows-2fr grid-flow-row grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="pb-24 grid md:auto-rows-fr grid-cols-2 lg:grid-cols-4 gap-4">
       <Hero />
       <TopArtists />
     </div>

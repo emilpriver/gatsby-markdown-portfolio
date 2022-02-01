@@ -41,7 +41,11 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 630,
+              maxWidth: 1920,
+              linkImagesToOriginal: true,
+              quality: 90,
+              withWebp: true,
+              withAvif: true,
             },
           },
           {
@@ -50,7 +54,9 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          `gatsby-remark-reading-time`,
           `gatsby-remark-prismjs`,
+          `gatsby-remark-autolink-headers`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
@@ -138,10 +144,7 @@ module.exports = {
         clientId: process.env.SPOTIFY_CLIENT_ID,
         clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
         refreshToken: process.env.SPOTIFY_CLIENT_REFRESH,
-
-        fetchPlaylists: true, // optional. Set to false to disable fetching of your playlists
-        fetchRecent: true, // optional. Set to false to disable fetching of your recently played tracks
-        timeRanges: ['short_term', 'medium_term', 'long_term'], // optional. Set time ranges to be fetched
+        timeRanges: ['short_term'], // optional. Set time ranges to be fetched
       },
     },
   ],

@@ -10,8 +10,8 @@ const fetcher = () => fetch('https://spotify-list-most-played-songs.emilpriver.w
     .then((r) => r.json() as Promise<SpotifyCurrentPlayingType>)
 
 const SpotifyCurrentPlaying: React.FC = () => {
-  const {data, error} = useSwr('/api/spotify/playing', fetcher)
-
+  const {data, error, isValidating} = useSwr('/api/spotify/playing', fetcher)
+  console.log(data)
   return (
       <div className="col-span-1 p-6 bg-white rounded-3xl min-h-64 flex justify-between flex-col">
         <div className="w-full flex items-center mb-2">
@@ -23,10 +23,16 @@ const SpotifyCurrentPlaying: React.FC = () => {
                 <span className="text-spotify mb-4"> Now Playing </span>
                 <a href={data?.item.external_urls.spotify} target="_blank" rel="noopener noreferrer nofollow">
                   <h3 className="text-xl">{data?.item.name}</h3>
-                  <span>{data?.item.artists.map((el) => el.name)}</span>
+                  <span>{data?.item.artists.map((el, index) => `${el.name}${(index + 1) !== data.item.artists?.length ? ', ': ''}`)}</span>
                 </a>
               </>
-          ) :  <Skeleton count={3} />}
+          ) :  (
+              <>
+                {!isValidating ? (
+                    <span className="text-red-600 mb-4"> Not currently playing</span>
+                ) : <Skeleton count={3} />}
+              </>
+          )}
         </div>
       </div>
   )
