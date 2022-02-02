@@ -7,9 +7,10 @@ type Props = {
   lang?: string
   meta?: Array<HTMLMetaElement>
   title?: string
+  image?: string
 }
 
-const Seo: React.FC<Props> = ({ description, lang, meta, title }) => {
+const Seo: React.FC<Props> = ({ description, lang, meta, title, image }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -28,6 +29,8 @@ const Seo: React.FC<Props> = ({ description, lang, meta, title }) => {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
+  const ogImage = image ?? '/images/profilbild.jpeg'
+
 
   return (
       <Helmet
@@ -44,6 +47,10 @@ const Seo: React.FC<Props> = ({ description, lang, meta, title }) => {
           {
             property: `og:title`,
             content: title,
+          },
+          {
+            property: `og:image`,
+            content: ogImage
           },
           {
             property: `og:description`,
@@ -64,6 +71,10 @@ const Seo: React.FC<Props> = ({ description, lang, meta, title }) => {
           {
             name: `twitter:title`,
             content: title,
+          },
+          {
+            name: `twitter:image`,
+            content: image,
           },
           {
             name: `twitter:description`,

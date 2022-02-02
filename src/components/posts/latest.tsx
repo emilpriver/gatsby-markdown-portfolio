@@ -6,7 +6,10 @@ import Post from './post';
 const Latest: React.FC = () => {
     const posts = useStaticQuery<{ posts: { nodes: PostType[] } }>(graphql`
         query LatestPosts {
-            posts: allMarkdownRemark(limit: 4) {
+            posts: allMarkdownRemark(
+                limit: 4,
+                sort: {fields: frontmatter___date, order: DESC}
+            ) {
                 nodes {
                     timeToRead
                     fields {
@@ -29,7 +32,8 @@ const Latest: React.FC = () => {
                     excerptHtml: excerpt(format: HTML)
                 }
             }
-        }`)
+        }
+    `)
 
   return (
       <>
