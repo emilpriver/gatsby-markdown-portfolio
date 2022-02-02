@@ -6,6 +6,7 @@ description: "Develop a Wordpress site using Docker and Docker compose"
 thumbnail: "/images/covers/wordpress/docker-docker-compose-wordpress-bedrock/cover.jpeg"
 published: true
 tags: ["docker", "wordpress"]
+type: blog
 ---
 
 This is a small article on how you can work with Docker and Wordpress(bedrock) to be able to host an wordpress site inside a docker machine.

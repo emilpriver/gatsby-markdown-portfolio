@@ -6,6 +6,7 @@ description: "Generate a sitemap.xml after Nextjs 9.4 update. Works with getServ
 thumbnail: "/images/covers/nextjs/sitemap-with-nextjs-after-9-4-update/cover.jpeg"
 published: true
 tags: ["next.js", "sitemap", "react"]
+type: blog
 ---
 
 Nextjs have done some changes since last post that I wrote. Since then was getStaticProps, getStaticPaths and getServerSidedProps introduced(You can read more about that here: https://nextjs.org/blog/next-9-4)
