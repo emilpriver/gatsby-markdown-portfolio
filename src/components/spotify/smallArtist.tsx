@@ -12,7 +12,7 @@ const SmallArtist: React.FC<Props> = ({artist}) => {
   return (
     <div className="w-24 h-24 block rounded-full mb-4">
       <a href={artist.external_urls.spotify} rel="noreferrer noopener" target="_blank">
-        <LazyLoadImage className="rounded-full w-24 h-24" height={200} width={200} src={image?.url} alt={artist.name}  effect="opacity" />
+        <LazyLoadImage className="rounded-full w-24 h-24" height={96} width={96} src={image?.url} alt={artist.name}  effect="opacity" />
       </a>
     </div>
   )
