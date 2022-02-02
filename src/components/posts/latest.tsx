@@ -8,6 +8,7 @@ const Latest: React.FC = () => {
         query LatestPosts {
             posts: allMarkdownRemark(
                 limit: 4,
+                filter: {frontmatter: {type: {eq: "blog"}}}
                 sort: {fields: frontmatter___date, order: DESC}
             ) {
                 nodes {

@@ -42,7 +42,6 @@ const TopArtists: React.FC = () => {
             }
         }
     `)
-  console.log(data.spotify)
   const [node] = data.spotify?.nodes ?? []
 
   return (

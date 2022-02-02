@@ -6,6 +6,7 @@ import Seo from "../components/seo"
 import Hero from "../components/hero"
 import TopArtists from "../components/spotify/topArtists";
 import Latest from "../components/posts/latest";
+import Index from "../components/podcasts";
 
 type DataProps = {}
 
@@ -16,9 +17,8 @@ const HomePage: React.FC<PageProps<DataProps>> = () => (
       <Hero />
       <TopArtists />
     </div>
-    <div>
-      <Latest />
-    </div>
+    <Index />
+    <Latest />
   </Layout>
 )
 
