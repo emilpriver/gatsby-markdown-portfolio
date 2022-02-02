@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -15,7 +15,7 @@ const AboutPage = () => {
             <p className="text-2xl md:text-3xl text-gray-500 mb-12">
               I love to explore the tech world, Love reading about tech and explore code, systems and stuffs in general.
             </p>
-            <p className="text-2xl md:text-3xl text-gray-500">Now i'm an software developer at <a href="https://rivercode.se">Rivercode</a> in Borås, Sweden</p>
+            <p className="text-2xl md:text-3xl text-gray-500">Now i'm an software developer at <a className="underline" target="_blank" rel="nofollow noopener noreferrer" href="https://rivercode.se">Rivercode</a> in Borås, Sweden</p>
           </div>
           <div className="md:pl-24">
             <StaticImage src="../images/profilbild.jpeg" alt="Emil Privér" />

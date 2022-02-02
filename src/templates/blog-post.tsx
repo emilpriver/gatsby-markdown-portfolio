@@ -22,6 +22,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data }) => {
         <Seo
             title={post.frontmatter.seoTitle || post.frontmatter.title || ''}
             description={post.frontmatter.description}
+            image={post.frontmatter.thumbnail}
         />
         <div className="max-w-4xl container mx-auto">
           <h1 className="text-4xl md:text-6xl mb-12 font-medium">{post.frontmatter.title}</h1>
@@ -35,7 +36,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data }) => {
             {post.fields.readingTime.text}
           </span>
           <div className="prose lg:prose-xl mb-12" dangerouslySetInnerHTML={{__html: post.html}} />
-          {true ? (
+          {previous || next ? (
               <div className="w-full flex justify-between items-center flex-wrap mb-12">
                 {previous ? <Link className="text-lg mb-2" to={previous.fields.slug}>Previous post: {previous.frontmatter.title}</Link> : null}
                 {next ? <Link className="text-lg mb-2" to={next.fields.slug}>Next post: {next.frontmatter.title}</Link> : null}
