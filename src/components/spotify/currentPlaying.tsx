@@ -11,7 +11,7 @@ const fetcher = () => fetch('https://spotify-list-most-played-songs.emilpriver.w
 
 const SpotifyCurrentPlaying: React.FC = () => {
   const {data, error, isValidating} = useSwr('/api/spotify/playing', fetcher)
-  console.log(data)
+
   return (
       <div className="col-span-1 p-6 bg-white rounded-3xl min-h-64 flex justify-between flex-col">
         <div className="w-full flex items-center mb-2">

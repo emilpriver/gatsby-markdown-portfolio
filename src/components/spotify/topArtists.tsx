@@ -7,42 +7,43 @@ import SpotifyCurrentPlaying from "./currentPlaying";
 
 type SpotifyQuery = {
   spotify: {
-    nodes: SpotifyArtist[]
+    nodes: {
+      items: SpotifyArtist[]
+    }[]
   }
 }
 
 const TopArtists: React.FC = () => {
     const data = useStaticQuery<SpotifyQuery>(graphql`
         query MostPlayedSpotifyArtists {
-            spotify: allSpotifyTopArtist(filter: {time_range: {eq: "short_term"}}, limit: 8) {
+            spotify: allSpotify(limit: 8)  {
                 nodes {
-                    uri
-                    time_range
-                    external_urls {
-                        spotify
-                    }
-                    image {
-                        localFile {
-                            id
-                            childImageSharp {
-                                gatsbyImageData(
-                                    width: 200
-                                    height: 200
-                                    webpOptions: {quality: 70}
-                                    formats: [AUTO, WEBP, AVIF]
-                                    placeholder: BLURRED
-                                    quality: 70
-                                )
-                            }
+                    items {
+                        external_urls {
+                            spotify
+                        }
+                        images {
+                            height
+                            url
+                            width
+                        }
+                        uri
+                        type
+                        name
+                        popularity
+                        id
+                        href
+                        genres
+                        followers {
+                            total
                         }
                     }
-                    name
-                    popularity
                 }
             }
         }
-
     `)
+  console.log(data.spotify)
+  const [node] = data.spotify?.nodes ?? []
 
   return (
       <>
@@ -55,7 +56,7 @@ const TopArtists: React.FC = () => {
             <h3 className="text-xl">Top Played Artists</h3>
           </div>
           <div className="flex flex-wrap justify-between text-spotify">
-            {data.spotify.nodes.map((el) => <SmallArtist key={el.uri} artist={el}/>)}
+            {node.items?.map((el) => <SmallArtist key={el.uri} artist={el}/>)}
           </div>
         </div>
       </>
