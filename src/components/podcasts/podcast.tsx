@@ -41,7 +41,7 @@ const Podcast: React.FC<{ podcast: PodcastType }> = ({podcast}) => {
               className="group inline-flex mr-2 mb-2 items-center h-9 rounded-full text-sm font-semibold whitespace-nowrap transition px-3 bg-gray-200 focus:outline-none focus:ring-2 text-gray-700 hover:bg-gray-300 hover:text-gray-900 focus:ring-gray-500"
               href={podcast.frontmatter.apple}
             >
-              Listen on Apple Music
+              Listen on Apple Podcast
               <svg
                 className="overflow-visible ml-3 text-gray-300 group-hover:text-gray-400"
                 width="3"
