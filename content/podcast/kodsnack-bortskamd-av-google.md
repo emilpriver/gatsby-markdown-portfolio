@@ -7,5 +7,5 @@ apple: https://podcasts.apple.com/se/podcast/kodsnack/id561631498?i=100054685348
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5rb2RzbmFjay5zZS8/episode/NzBlZDFjZGMtNWNmNS00MTExLWI0NDEtNTQxNzU4MGM5ZWQ0?sa=X&ved=0CAUQkfYCahcKEwi4zpjY6eH1AhUAAAAAHQAAAAAQPA
 type: podcast
 tags: ["headless", "e-commerce", "search engines"]
-description: We talked about how e-commerce looks today and how we work with e-com sites today to be able to scale and so on.
+description: We talked about how e-commerce looks today and how we work with e-com sites today to be able to scale and so on. We also talked about search engines we use and how we work with them.
 ---
