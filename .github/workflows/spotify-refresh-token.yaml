@@ -3,10 +3,10 @@ name: Refresh Spotify long lived-token
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * MON"
+    - cron: "0 */12 * * *"
 
 jobs:
-  cron-send-webhook-request:
+  cron-send-spotify-webhook-request:
     runs-on: ubuntu-latest
     steps:
       - name: Send refresh spotify token request
