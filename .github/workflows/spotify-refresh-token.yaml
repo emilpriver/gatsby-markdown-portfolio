@@ -1,0 +1,18 @@
+name: Refresh Spotify long lived-token
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * MON"
+
+jobs:
+  cron-send-webhook-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send refresh spotify token request
+        uses: fjogeleit/http-request-action@master
+        with:
+          url: https://accounts.spotify.com/api/token
+          method: 'POST'
+          customHeaders: "{'Authorization': Basic ${{ secrets.SPOTIFY_BASIC_TOKEN }}; 'Content-Type':'application/x-www-form-urlencoded'}"
+          data: "grant_type=refresh_token&refresh_token=${{ secrets.SPOTIFY_BASIC_TOKEN }}"

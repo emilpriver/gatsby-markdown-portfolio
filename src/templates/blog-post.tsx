@@ -5,6 +5,7 @@ import Seo from "../components/seo"
 import {Post} from "../types/post";
 import dayjs from "dayjs";
 import "prismjs/themes/prism-tomorrow.css";
+import HeaderBigText from "../components/text/HeaderBigText";
 
 type Props = {
   data: {
@@ -25,7 +26,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data }) => {
             image={post.frontmatter.thumbnail}
         />
         <div className="max-w-4xl container mx-auto">
-          <h1 className="text-4xl md:text-6xl mb-12 font-medium">{post.frontmatter.title}</h1>
+          <HeaderBigText>{post.frontmatter.title}</HeaderBigText>
           <span className="mb-6 w-full inline-block">
             <time className="mb-6" dateTime={dayjs(post.frontmatter.date).format("MMMM DD, YYYY")}>
               {post.frontmatter.fromNow}
