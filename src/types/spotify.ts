@@ -1,14 +1,14 @@
+import {ImageDataLike} from "gatsby-plugin-image";
+
 export interface SpotifyArtist {
   uri: string
   time_range: string
   external_urls: {
     spotify: string
   }
-  images: {
-    url: string
-    width: number
-    height: number
-  }[]
+  image: {
+    localFile: ImageDataLike
+  }
   name: string
   popularity: string
 }

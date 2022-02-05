@@ -1,0 +1,16 @@
+name: Refresh instagram long lived-token
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * MON"
+
+jobs:
+  cron-send-webhook-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send refresh instagram token request
+        uses: fjogeleit/http-request-action@master
+        with:
+          url: ${{ secrets.INSTAGRAM_REFRESH_TOKEN_URL }}
+          method: 'GET'

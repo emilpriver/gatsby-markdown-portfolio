@@ -137,42 +137,21 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-      {
-      resolve: "gatsby-source-custom-api",
+    {
+      resolve: `gatsby-source-spotify`,
       options: {
-        url: "https://spotify-list-most-played-songs.emilpriver.workers.dev/top?type=artists&time_range=medium_term&limit=8",
-        rootKey: "spotify",
-        imageKeys: ["images"],
-        schemas: {
-          spotify: `
-            items: [item]
-          `,
-          item:`
-            external_urls: external
-            images: [images] 
-            uri: String
-            type: String
-            name: String
-            popularity: Int
-            id: String
-            href: String
-            genres: [String]
-            followers: followers
-          `,
-          followers: `
-            total: Int
-          `,
-          images: `
-            height: Int
-            url: String
-            width: Int
-          `,
-          external: `
-            spotify: String
-          `
-        }
-      }
+        clientId: process.env.SPOTIFY_CLIENT_ID,
+        clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+        refreshToken: process.env.SPOTIFY_CLIENT_REFRESH,
+        timeRanges: ['medium_term']
+      },
     },
     `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-source-instagram-all`,
+      options: {
+        access_token: process.env.INSTAGRAM_TOKEN,
+      },
+    },
   ],
 }
