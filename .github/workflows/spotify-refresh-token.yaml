@@ -15,4 +15,4 @@ jobs:
           url: https://accounts.spotify.com/api/token
           method: 'POST'
           customHeaders: '{"Content-Type":"application/x-www-form-urlencoded","Authorization":"Basic ${{ secrets.SPOTIFY_BASIC_TOKEN }}"}'
-          data: "grant_type=refresh_token&refresh_token=${{ secrets.SPOTIFY_BASIC_TOKEN }}"
+          data: "grant_type=refresh_token&refresh_token=${{ secrets.SPOTIFY_REFRESH_TOKEN }}"
