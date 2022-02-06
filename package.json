@@ -8,6 +8,7 @@
     "url": "https://github.com/emilpriver/gatsby-markdown-portfolio/issues"
   },
   "dependencies": {
+    "@fontsource/dm-sans": "^4.5.1",
     "autoprefixer": "^10.4.2",
     "dayjs": "^1.10.7",
     "dotenv": "^15.0.0",
