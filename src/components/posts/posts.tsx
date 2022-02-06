@@ -18,7 +18,21 @@ const Posts: React.FC = () => {
                           }
                       }
                       frontmatter {
-                          thumbnail
+                          cover {
+                              childImageSharp {
+                                  original {
+                                      src
+                                  }
+                                  image: gatsbyImageData(
+                                      width: 400
+                                      height: 240
+                                      webpOptions: {quality: 70}
+                                      formats: [AUTO, WEBP, AVIF]
+                                      placeholder: BLURRED
+                                      quality: 70
+                                  )
+                              }
+                          }
                           title
                           description
                           date(fromNow: true)
