@@ -29,8 +29,8 @@ const Latest: React.FC = () => {
                                     src
                                 }
                                 image: gatsbyImageData(
-                                    width: 400
-                                    height: 240
+                                    width: 700
+                                    height: 340
                                     webpOptions: {quality: 70}
                                     formats: [AUTO, WEBP, AVIF]
                                     placeholder: BLURRED
