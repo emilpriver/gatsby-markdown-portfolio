@@ -1,3 +1,5 @@
+import {ImageDataLike} from "gatsby-plugin-image";
+
 export type Post = {
   timeToRead: string
   fields: {
@@ -10,7 +12,14 @@ export type Post = {
     }
   }
   frontmatter: {
-    thumbnail: string
+    cover: {
+      childImageSharp: {
+        original: {
+          src: string
+        }
+        image: ImageDataLike
+      }
+    }
     title: string
     seoTitle: string
     description: string

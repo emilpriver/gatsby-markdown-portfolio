@@ -35,6 +35,7 @@ const Images = () => {
           }
         }
     `)
+
     return (
         <Layout>
             <Seo title="Images" />
@@ -48,7 +49,7 @@ const Images = () => {
                     1050: 4
                 }}
             >
-                <Masonry gutter="10px">
+                <Masonry gutter="20px">
                     {data?.instagram?.nodes?.map((el) => (
                         <Picture key={el.media_id} instagram={el} />
                     ))}

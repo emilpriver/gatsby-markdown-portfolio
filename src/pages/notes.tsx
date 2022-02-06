@@ -1,13 +1,17 @@
-import React from 'react'
+import React from "react"
+import Layout from "../components/layout"
+import Seo from "../components/seo"
 import {graphql, useStaticQuery} from "gatsby";
-import {Post as PostType} from "../../types/post";
-import Post from './post';
+import HeaderBigText from "../components/text/HeaderBigText";
+import BigParagraph from "../components/text/BigParagraph";
+import {Post as PostType} from "../types/post";
+import Post from "../components/posts/post";
 
-const Latest: React.FC = () => {
+
+const Images = () => {
     const posts = useStaticQuery<{ posts: { nodes: PostType[] } }>(graphql`
-        query LatestPosts {
+        query AllNotes {
             posts: allMarkdownRemark(
-                limit: 4,
                 filter: {frontmatter: {published: {eq: true}, type: {eq: "blog"}}}
                 sort: {fields: frontmatter___date, order: DESC}
             ) {
@@ -50,13 +54,19 @@ const Latest: React.FC = () => {
         }
     `)
 
-  return (
-      <>
-          <h2 className="text-4xl mb-4 font-medium">Latest posts on the blog</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            {posts?.posts?.nodes?.map((el) => <Post post={el}/>)}
-          </div>
-      </>
-  )
+    return (
+        <Layout>
+            <Seo title="Notes" />
+            <HeaderBigText>Notes</HeaderBigText>
+            <BigParagraph>This page contains life notes, blogs, tutorials and more i've written during the years</BigParagraph>
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4">
+                {posts?.posts?.nodes?.map((el) => <Post post={el}/>)}
+            </div>
+        </Layout>
+    )
 }
-export default Latest
+
+export default Images
+
+
+

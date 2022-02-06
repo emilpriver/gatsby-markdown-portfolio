@@ -2,17 +2,27 @@ import React from 'react'
 import {Link} from "gatsby";
 import {Post as PostType} from '../../types/post'
 import dayjs from "dayjs";
+import {GatsbyImage, getImage, IGatsbyImageData} from "gatsby-plugin-image";
 
 type Post = {
   post: PostType
 }
 
 const Post: React.FC<Post> = ({post}) => {
+  const image = getImage(post.frontmatter.cover.childImageSharp.image) as IGatsbyImageData
+
   return (
       <article
-          className="relative flex flex-col max-w-3xl lg:ml-auto xl:max-w-none mb-5 bg-white p-6 rounded-3xl"
+          className="relative flex flex-col max-w-3xl lg:ml-auto xl:max-w-none mb-5"
           key={post.id}
       >
+        {post?.frontmatter?.cover?.childImageSharp?.image ? (
+            <div className="mb-6">
+              <Link to={post.fields.slug}>
+                <GatsbyImage image={image} alt={post.frontmatter.title} />
+              </Link>
+            </div>
+        ) : null}
         <h3 className="mb-4 text-2xl text-gray-900 tracking-tight font-bold">
           <Link to={post.fields.slug}>
             {post.frontmatter.title}

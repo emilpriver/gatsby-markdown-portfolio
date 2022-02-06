@@ -17,13 +17,14 @@ type Props = {
 
 const BlogPostTemplate: React.FC<Props> = ({ data }) => {
   const { previous, next, markdownRemark: post } = data
+  console.log(post)
 
   return (
       <Layout>
         <Seo
             title={post.frontmatter.seoTitle || post.frontmatter.title || ''}
             description={post.frontmatter.description}
-            image={post.frontmatter.thumbnail}
+            image={post.frontmatter?.cover?.childImageSharp?.original?.src ?? null}
         />
         <div className="max-w-4xl container mx-auto">
           <HeaderBigText>{post.frontmatter.title}</HeaderBigText>
@@ -75,7 +76,21 @@ export const pageQuery = graphql`
             }
         }
         frontmatter {
-            thumbnail
+            cover {
+                childImageSharp {
+                    original {
+                        src
+                    }
+                    image: gatsbyImageData(
+                        width: 400
+                        height: 240
+                        webpOptions: {quality: 70}
+                        formats: [AUTO, WEBP, AVIF]
+                        placeholder: BLURRED
+                        quality: 70
+                    )
+                }
+            }
             title
             description
             fromNow: date(fromNow: true, locale: "en")
