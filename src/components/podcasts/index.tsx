@@ -23,7 +23,6 @@ const Podcasts: React.FC = () => {
             }
         }
     `)
-    console.log(data)
 
   return (
       <div className="pb-24">

@@ -17,7 +17,6 @@ type Props = {
 
 const BlogPostTemplate: React.FC<Props> = ({ data }) => {
   const { previous, next, markdownRemark: post } = data
-  console.log(post)
 
   return (
       <Layout>
