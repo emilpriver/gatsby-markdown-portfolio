@@ -6,7 +6,7 @@ const Hero: React.FC = () => {
       <>
         <div className="rounded-3xl p-6 bg-white block float-left col-span-2">
           <StaticImage src="../images/favicon.png" alt="Emil Privér" width={100} height={100}/>
-          <h3 className="mt-2 text-hero-dark antialiased font-medium text-xl">Hi, im Emil Privér. Sooftware developer with a focus backend, love tech, serverless, distributed systems, and trying new stuff.</h3>
+          <h3 className="mt-2 text-hero-dark antialiased font-medium text-xl">Hi, im Emil Privér. Software developer with a focus backend, love tech, serverless, distributed systems, and trying new stuff.</h3>
         </div>
         <div className="col-span-1">
           <a href="https://twitter.com/emil_priver" target="_blank" rel="nofollow noopener noreferrer"
