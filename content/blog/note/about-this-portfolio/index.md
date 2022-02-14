@@ -108,14 +108,14 @@ To get what my most played Albums are did I use a simple Gatsby plugin which on 
 },
 ```
 
-As Spotify have an end time for its refresh token did I need to build something that refresh the tokens every 12 hour. So I used the same idea for Cloudflare Workers to refresh the Spotify token every 12 hour. But Spotify needed POST data which was used to verify the requst which ended up in this code:
+As Spotify have an end time for its refresh token did I need to build something that refresh the tokens every 6 hour. So I used the same idea for Cloudflare Workers to refresh the Spotify token every 6 hour. But Spotify needed POST data which was used to verify the requst which ended up in this code:
 ```yaml
 name: Refresh Spotify long lived-token
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */12 * * *"
+    - cron: "0 */6 * * *"
 
 jobs:
   cron-send-spotify-webhook-request:
