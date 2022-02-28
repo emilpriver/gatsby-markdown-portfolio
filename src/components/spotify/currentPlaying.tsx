@@ -18,13 +18,15 @@ const SpotifyCurrentPlaying: React.FC = () => {
           <SpotifyIcon className="h-12 w-12 mr-4 fill-spotify"/>
         </div>
         <div>
-          {data && data?.is_playing && data?.currently_playing_type === "track" && !error ? (
+          {data && data?.is_playing && !error ? (
               <>
-                <span className="text-spotify mb-4"> Now Playing </span>
-                <a href={data?.item.external_urls.spotify} target="_blank" rel="noopener noreferrer nofollow">
-                  <h3 className="text-xl">{data?.item.name}</h3>
-                  <span>{data?.item.artists.map((el, index) => `${el.name}${(index + 1) !== data.item.artists?.length ? ', ': ''}`)}</span>
-                </a>
+                <span className="text-spotify mb-4"> Now Playing a {data?.currently_playing_type} </span>
+                  {data?.currently_playing_type === "track" && (
+                   <a href={data?.item.external_urls.spotify} target="_blank" rel="noopener noreferrer nofollow">
+                       <h3 className="text-xl">{data?.item.name}</h3>
+                      <span>{data?.item.artists.map((el, index) => `${el.name}${(index + 1) !== data.item.artists?.length ? ', ': ''}`)}</span>
+                   </a>
+                  )}
               </>
           ) :  (
               <>
