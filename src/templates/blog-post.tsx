@@ -6,6 +6,7 @@ import {Post} from "../types/post";
 import dayjs from "dayjs";
 import "prismjs/themes/prism-tomorrow.css";
 import HeaderBigText from "../components/text/HeaderBigText";
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 
 type Props = {
   data: {
@@ -15,7 +16,7 @@ type Props = {
   }
 }
 
-const BlogPostTemplate: React.FC<Props> = ({ data }) => {
+const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
   const { previous, next, markdownRemark: post } = data
 
   return (
@@ -26,6 +27,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data }) => {
             image={post.frontmatter?.cover?.childImageSharp?.original?.src ?? null}
         />
         <div className="max-w-4xl container mx-auto">
+          <Breadcrumb location={location} crumbLabel="About Us" />
           <HeaderBigText>{post.frontmatter.title}</HeaderBigText>
           <span className="mb-6 w-full inline-block">
             <time className="mb-6" dateTime={dayjs(post.frontmatter.date).format("MMMM DD, YYYY")}>
