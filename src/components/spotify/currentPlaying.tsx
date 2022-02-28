@@ -18,7 +18,7 @@ const SpotifyCurrentPlaying: React.FC = () => {
           <SpotifyIcon className="h-12 w-12 mr-4 fill-spotify"/>
         </div>
         <div>
-          {data && !error ? (
+          {data && data?.is_playing && data?.currently_playing_type === "track" && !error ? (
               <>
                 <span className="text-spotify mb-4"> Now Playing </span>
                 <a href={data?.item.external_urls.spotify} target="_blank" rel="noopener noreferrer nofollow">
