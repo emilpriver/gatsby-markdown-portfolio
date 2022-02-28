@@ -5,6 +5,9 @@ if(process.env.NODE_ENV === "development") {
 }
 
 module.exports = {
+  flags: {
+    PARALLEL_QUERY_RUNNING: false
+  },
   siteMetadata: {
     title: `Emil Privér`,
     author: {
