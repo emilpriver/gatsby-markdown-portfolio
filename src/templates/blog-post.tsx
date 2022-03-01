@@ -14,6 +14,7 @@ type Props = {
     previous: Post
     next: Post
   }
+  location: any
 }
 
 const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
@@ -27,7 +28,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
             image={post.frontmatter?.cover?.childImageSharp?.original?.src ?? null}
         />
         <div className="max-w-4xl container mx-auto">
-          <Breadcrumb location={location} crumbLabel="About Us" />
+          <Breadcrumb location={location} crumbLabel={post.frontmatter.title} />
           <HeaderBigText>{post.frontmatter.title}</HeaderBigText>
           <span className="mb-6 w-full inline-block">
             <time className="mb-6" dateTime={dayjs(post.frontmatter.date).format("MMMM DD, YYYY")}>

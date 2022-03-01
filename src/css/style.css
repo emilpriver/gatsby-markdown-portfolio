@@ -1,3 +1,7 @@
 nav.breadcrumb {
     font-size: 0.8rem;
 }
+
+.breadcrumb__link {
+    margin-left: 5px;
+}
