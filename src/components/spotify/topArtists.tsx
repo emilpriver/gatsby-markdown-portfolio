@@ -26,9 +26,11 @@ const TopArtists: React.FC = () => {
                             id
                             childImageSharp {
                                 gatsbyImageData(
-                                    width: 200
-                                    height: 200
-                                    webpOptions: {quality: 70}
+                                    width: 96
+                                    height: 96
+                                    webpOptions: {
+                                        quality: 70
+                                    }
                                     formats: [AUTO, WEBP, AVIF]
                                     placeholder: BLURRED
                                     quality: 70
