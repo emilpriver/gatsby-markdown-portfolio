@@ -1,13 +1,9 @@
-if(process.env.NODE_ENV === "development") {
-  require("dotenv").config({
-    path: '.env'
-  })
-}
+require("dotenv").config({
+  path: '.env'
+})
+
 
 module.exports = {
-  flags: {
-    PARALLEL_QUERY_RUNNING: false
-  },
   siteMetadata: {
     title: `Emil Privér`,
     author: {
@@ -171,6 +167,12 @@ module.exports = {
         // usePathPrefix: optional, if you are using pathPrefix above
         usePathPrefix: '/blog',
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-cloudflare-web-analytics`,
+      options: {
+        token: process.env.CLOUDFLARE_ANALYTICS_TOKEN,
+      }
+    },
   ],
 }

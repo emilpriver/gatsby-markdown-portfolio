@@ -12,6 +12,6 @@ jobs:
       - name: Send Webhook request
         uses: fjogeleit/http-request-action@master
         with:
-          url: ${{ secrets.CLOUDFLARE_WEBHOOK }}
+          url: ${{ secrets.DEPLOY_WEBHOOK }}
           method: 'POST'
 

@@ -8,7 +8,7 @@ const Footer: React.FC = () => (
         {' '}
         -
         {' '}
-        Hosted on <a className="underline" href="https://pages.cloudflare.com"> Cloudflare Pages</a>
+        Hosted on <a className="underline" href="https://www.gatsbyjs.com/products/cloud/"> Gatsby Cloud</a>
     </footer>
 )
 

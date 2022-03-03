@@ -5,7 +5,7 @@ seoTitle: "About this portfolio"
 description: "A note about how I build my portfolio using Gatsby, Markdown files, Instagram, Github Actions and Cloudflare."
 cover: ./cover.jpeg
 published: true
-tags: ["Gatsby", "Markdown", "Github Actions", "Cloudflare", "Cloudflare Pages", "Instagram"]
+tags: ["Gatsby", "Markdown", "Github Actions", "Gatsby Cloud", "Instagram"]
 type: blog
 ---
 
@@ -240,5 +240,8 @@ This page was build in less the 2 evenings. Maybe 6-8 hours of coding. And as I 
 ## The end. 
 Hope you found this post fun. There is no right and wrong of your solution, Using Gatsby, Next, remix and so on is up to you. 
 > Whatever float your boat
+
+### Update 3 mars 2022.
+This page is now hosted on Gatsby Cloud due to conflicts when building on Cloudflare Pages.
 
 Reach out to my [Twitter](https://twitter.com/emil_priver) if anything
