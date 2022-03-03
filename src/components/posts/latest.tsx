@@ -33,7 +33,7 @@ const Latest: React.FC = () => {
                                     height: 340
                                     webpOptions: {quality: 70}
                                     formats: [AUTO, WEBP, AVIF]
-                                    placeholder: BLURRED
+                                    placeholder: DOMINANT_COLOR
                                     quality: 70
                                 )
                             }

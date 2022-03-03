@@ -28,7 +28,7 @@ const Posts: React.FC = () => {
                                       height: 240
                                       webpOptions: {quality: 70}
                                       formats: [AUTO, WEBP, AVIF]
-                                      placeholder: BLURRED
+                                      placeholder: DOMINANT_COLOR
                                       quality: 70
                                   )
                               }

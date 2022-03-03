@@ -1,5 +1,6 @@
 import React from "react"
 import Header from "./header";
+import Footer from "./footer";
 
 
 const Layout: React.FC = ({  children }) => {
@@ -8,15 +9,7 @@ const Layout: React.FC = ({  children }) => {
     <div className="container mx-auto max-w-7xl">
       <Header />
       <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a className="underline" href="https://www.gatsbyjs.com">Gatsby</a>
-        {' '}
-        -
-        {' '}
-        Hosted on <a className="underline" href="https://pages.cloudflare.com"> Cloudflare Pages</a>
-      </footer>
+      <Footer />
     </div>
   )
 }
