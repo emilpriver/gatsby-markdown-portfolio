@@ -14,7 +14,7 @@ type SpotifyQuery = {
 const TopArtists: React.FC = () => {
     const data = useStaticQuery<SpotifyQuery>(graphql`
         query MostPlayedSpotifyArtists {
-            spotify: allSpotifyTopArtist(filter: {time_range: {eq: "medium_term"}}, limit: 8) {
+            spotify: allSpotifyTopArtist(filter: {time_range: {eq: "short_term"}}, limit: 8) {
                 nodes {
                     uri
                     time_range
