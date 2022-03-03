@@ -10,7 +10,7 @@ type Props = {
   image?: string
 }
 
-const Seo: React.FC<Props> = ({ description, lang, meta, title, image }) => {
+const Seo: React.FC<Props> = ({ description, lang = 'en', meta, title, image }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
