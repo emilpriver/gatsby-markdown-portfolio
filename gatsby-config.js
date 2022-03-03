@@ -168,11 +168,5 @@ module.exports = {
         usePathPrefix: '/blog',
       }
     },
-    {
-      resolve: `gatsby-plugin-cloudflare-web-analytics`,
-      options: {
-        token: process.env.CLOUDFLARE_ANALYTICS_TOKEN,
-      }
-    },
   ],
 }
