@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
     `)
 
 
-    const date = dayjs().from(dayjs(query.site.buildTime))
+    const date = dayjs(query.site.buildTime).fromNow()
 
     return (
         <footer>
