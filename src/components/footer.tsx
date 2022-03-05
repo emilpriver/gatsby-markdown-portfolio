@@ -1,16 +1,21 @@
 import React from 'react'
 import {graphql, useStaticQuery} from "gatsby";
+import relativeTime from 'dayjs/plugin/relativeTime'
+import dayjs from "dayjs";
+
+dayjs.extend(relativeTime)
 
 const Footer: React.FC = () => {
     const query = useStaticQuery(graphql`
         query {
             site {
-                buildTime(fromNow: true)
+                buildTime
             }
         }
     `)
 
-    console.log(query)
+
+    const date = dayjs().from(dayjs(query.site.buildTime))
 
     return (
         <footer>
@@ -24,7 +29,7 @@ const Footer: React.FC = () => {
             {' '}
             -
             {' '}
-            This page was last build {query.site.buildTime}
+            This page was last build {date}
         </footer>
     )
 }
