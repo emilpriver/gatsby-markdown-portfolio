@@ -167,16 +167,6 @@ module.exports = {
         // usePathPrefix: optional, if you are using pathPrefix above
         usePathPrefix: '/blog',
       }
-    },
-    {
-      resolve: `gatsby-plugin-gatsby-cloud`,
-      options: {
-        headers: {
-          "/*": [
-            "Referrer-Policy: no-referrer-when-downgrade",
-          ],
-        },
-      },
-    },
+    }
   ],
 }

@@ -241,7 +241,4 @@ This page was build in less the 2 evenings. Maybe 6-8 hours of coding. And as I 
 Hope you found this post fun. There is no right and wrong of your solution, Using Gatsby, Next, remix and so on is up to you. 
 > Whatever float your boat
 
-### Update 3 mars 2022.
-This page is now hosted on Gatsby Cloud due to conflicts when building on Cloudflare Pages.
-
 Reach out to my [Twitter](https://twitter.com/emil_priver) if anything
