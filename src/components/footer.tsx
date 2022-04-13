@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
 
     return (
         <footer>
-            © {new Date().getFullYear()}, Built with
+            © {new Date().getFullYear()}, Build blazinlgy fast with
             {` `}
             <a className="underline" href="https://www.gatsbyjs.com">Gatsby</a>
             {' '}
@@ -29,6 +29,7 @@ const Footer: React.FC = () => {
             {' '}
             -
             {' '}
+            -
             This page was last build {date}
         </footer>
     )
