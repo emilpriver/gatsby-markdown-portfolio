@@ -1,15 +1,6 @@
 import React from 'react'
-import {graphql, useStaticQuery} from "gatsby";
 
 const Footer: React.FC = () => {
-    const query = useStaticQuery(graphql`
-        query {
-            site {
-                buildTime(fromNow: true)
-            }
-        }
-    `)
-    
     return (
         <footer>
             © {new Date().getFullYear()}, Build blazinlgy fast with
@@ -19,10 +10,6 @@ const Footer: React.FC = () => {
             -
             {' '}
             Hosted on <a className="underline" href="https://pages.cloudflare.com/">Cloudflare Pages</a>
-            {' '}
-            -
-            {' '}
-            This page was last build {query.site.buildTime}
         </footer>
     )
 }
