@@ -1,7 +1,6 @@
 import React from 'react'
 import {Link} from "gatsby";
 import {Post as PostType} from '../../types/post'
-import dayjs from "dayjs";
 import {GatsbyImage, getImage, IGatsbyImageData} from "gatsby-plugin-image";
 
 type Post = {
@@ -29,7 +28,7 @@ const Post: React.FC<Post> = ({post}) => {
           </Link>
         </h3>
         <span>
-            <time className="mb-6" dateTime={dayjs(post.frontmatter.date).format("MMMM DD, YYYY")}>
+            <time className="mb-6" dateTime={post.frontmatter.date}>
               {post.frontmatter.fromNow}
             </time>
           {' '}

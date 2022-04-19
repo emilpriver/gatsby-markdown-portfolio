@@ -1,9 +1,5 @@
 import React from 'react'
 import {graphql, useStaticQuery} from "gatsby";
-import relativeTime from 'dayjs/plugin/relativeTime'
-import dayjs from "dayjs";
-
-dayjs.extend(relativeTime)
 
 const Footer: React.FC = () => {
     const query = useStaticQuery(graphql`

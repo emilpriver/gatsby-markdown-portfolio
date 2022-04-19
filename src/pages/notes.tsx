@@ -45,7 +45,7 @@ const Images = () => {
                         title
                         description
                         fromNow: date(fromNow: true, locale: "en")
-                        date
+                        date: date(formatString: "MMMM DD, YYYY")
                     }
                     excerptPlain: excerpt(format: PLAIN)
                     excerptHtml: excerpt(format: HTML)
