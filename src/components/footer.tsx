@@ -9,14 +9,11 @@ const Footer: React.FC = () => {
     const query = useStaticQuery(graphql`
         query {
             site {
-                buildTime
+                buildTime(fromNow: true)
             }
         }
     `)
-
-
-    const date = dayjs(query.site.buildTime).fromNow()
-
+    
     return (
         <footer>
             © {new Date().getFullYear()}, Build blazinlgy fast with
@@ -29,8 +26,7 @@ const Footer: React.FC = () => {
             {' '}
             -
             {' '}
-            -
-            This page was last build {date}
+            This page was last build {query.site.buildTime}
         </footer>
     )
 }

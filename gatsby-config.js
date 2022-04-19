@@ -2,13 +2,13 @@ require("dotenv").config({
   path: '.env'
 })
 
-
 module.exports = {
   siteMetadata: {
     title: `Emil Privér`,
     author: {
       name: `Emil Privér`,
       summary: `who lives and works in Varberg, Sweden building useful things.`,
+      born: new Date('18 Mars 1999 18:00 UTC')
     },
     description: `Software developer with focus backend, love tech, serverless, distributed systems and trying new stuffs`,
     siteUrl: `https://priver.se`,
