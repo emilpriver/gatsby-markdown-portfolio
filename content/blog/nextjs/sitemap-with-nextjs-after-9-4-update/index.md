@@ -35,7 +35,7 @@ const { posts } = await graphlqlFetch(`
 // Create the a stream to write to with a hostname which will be used for all links
 // Your are able to add more settings to the stream. I recommend to look a the npm package for more information.
 const smStream = new SitemapStream({
-    hostname: "https://priver.se",
+    hostname: "https://priver.dev",
 });
 
 // Add frontpage
@@ -125,7 +125,7 @@ const { posts } = await graphlqlFetch(`
 // Create the a stream to write to with a hostname which will be used for all links
 // Your are able to add more settings to the stream. I recommend to look a the npm package for more information.
 const smStream = new SitemapStream({
-    hostname: "https://priver.se",
+    hostname: "https://priver.dev",
 });
 
 // Add frontpage
